@@ -17,7 +17,8 @@ var express                   = require('express'),
 var app = express();
 var csrfProtection = csrf();
 
-mongoose.connect('mongodb://localhost/pins', {useMongoClient: true});
+// mongoose.connect('mongodb://localhost/pins', {useMongoClient: true});
+mongoose.connect('mongodb://buster:buster@ds153113.mlab.com:53113/favbandpins', {useMongoClient: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine","ejs");
 app.use(express.static(__dirname + "/public"));
