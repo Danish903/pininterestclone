@@ -1,0 +1,41 @@
+<% include ./partials/header %>
+
+
+<div class="content">
+  <p style="color: white; font-size: 40px;margin-top: 0; margin-bottom: 40px" class="text-center">Pins oFMusic Bands</p>
+  <div class="grid">
+    <% pins.forEach(function(pin){ %>
+        <div class="grid-item">
+        <img src="<%= pin.image %>" />
+        <div  style=" width: 80%; margin: 30px auto">
+          <p class="text-center pinsFont"> <%= pin.description %></p>
+          <p class="btn btn-sx btn-danger pull-right"><%=pin.user.username %> </p>
+          <% if(currentUser && pin.user.id.equals(currentUser._id)) { %>
+            <p><i class="fa fa-thumbs-o-up fa-2x" aria-hidden="true"></i></p>
+          <% } else if(currentUser && !pin.user.id.equals(currentUser._id)){ %>
+          <% var found = false %>
+            <% pin.like.forEach(function (like) {%>
+              <% if(like.user.equals(currentUser._id) && like.hasLike) { %>
+                <%found = true%>
+              <% } %>
+            <% }) %>
+            <% if (!found)  { %>
+              <p><a href="/pins/<%=pin._id%>"<i class="fa fa-thumbs-o-up fa-2x" aria-hidden="true"></i> </a></p>
+            <% } else {%>
+               <p><i class="fa fa-thumbs-o-up fa-2x" aria-hidden="true"></i></p>
+            <% } %>
+          <% } else { %>
+            <p><i class="fa fa-thumbs-o-up fa-2x" aria-hidden="true"></i></p>
+          <% } %>
+          <span>&nbsp;<%=pin.likeCount %></span>
+          
+        </div>
+        <p style="margin: 0 0 0 60px; padding-bottom: 10px"> <%= moment(pin.createdAt).fromNow() %></p>
+    </div>
+    <% }) %>
+  </div> 
+</div>
+<script type="text/javascript" src="js/image.js"></script>
+
+</body>
+</html>

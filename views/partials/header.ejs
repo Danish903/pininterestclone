@@ -1,0 +1,152 @@
+<!DOCTYPE Html>
+<html>
+<head>
+  <title></title>
+  <script
+    src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    crossorigin="anonymous">
+  
+  </script>
+  <script src="https://masonry.desandro.com/masonry.pkgd.js"></script>
+  <script src="https://imagesloaded.desandro.com/imagesloaded.pkgd.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!--<link rel="stylesheet" type="text/css" href="css/masonry.css">-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Lobster+Two|Sedgwick+Ave+Display" rel="stylesheet">
+</head>
+<style>
+body {
+    background: #333;
+}
+.navbar-default .navbar-brand{
+    color: white;
+}
+.navbar-default .navbar-brand:hover{
+    color: white;
+}
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+    color: white;
+    background-color: transparent;
+}
+label{
+    color: white;
+    
+}
+#login {
+  Color: white ;
+  margin: 30px 0;
+  font-weight: Bold;
+  font-size: 3em;
+  border-bottom: 1px solid white;
+  padding-bottom: 20px;
+ 
+}
+
+body { font-family: sans-serif}
+
+/* ---- grid ---- */
+.content {
+  max-width: 70%;
+  margin: 0 auto;
+  
+}
+.grid {
+  background: #333;
+  max-width: 100%;
+}
+h1{
+  border-bottom: 1px solid #b2b2b2;
+  width: 20%;
+  padding-bottom: 20px;
+}
+
+/* clearfix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ---- grid-item ---- */
+
+.grid-item {
+  width: 200px;
+
+  float: left;
+  background: white;
+  /*//#dce0e8;*/
+  border: 2px solid #333;
+  border-color:#333;
+  border-radius: 10px;
+ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+.grid-item img {
+   position: relative;
+  /*object-fit: contain;*/
+  min-width: 128px;
+  max-width: 80%;
+  margin-left: 18px;
+  margin-top: 18px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  height: auto;
+}
+#addNew {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: 40px
+}
+.modal-body .form-group label {
+  color: black;
+}
+.pinsFont{
+  font-family: 'Sedgwick Ave Display', cursive;
+  font-size: 20px;
+}
+p {
+  font-family: 'Lobster Two', cursive;
+}
+</style>
+<body>
+<nav class="navbar navbar-default" style="background: #333 ; outline: none ; border: none">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand pinsFont" href="/"><i class="fa fa-music" aria-hidden="true"></i> Fav Bands</a>
+      <ul class="nav navbar-nav navbar-left">
+        <li><a href="/pins"> View Pins</a></li>
+      </ul>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    
+ 
+      <ul class="nav navbar-nav navbar-right">
+        
+        <% if(!currentUser) {%>
+          <li>
+              <a href="/user/signup">Sign up</a>
+          </li>
+          <li>
+              <a href="/user/login">Login</a>
+          </li>
+        <% } else { %>
+          <li><a href="/user/profile"> Your Profile</a></li>
+          <li><a href="#"> Signed in as <%=currentUser.username %></a></li>
+          <li><a href="/user/logout"> Logout</a></li>
+        <% } %>
+      
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+ 
