@@ -1,8 +1,8 @@
 <% include ../partials/header %>
 
-
+<link rel="stylesheet" type="text/css" href="../css/app.css">
 <div class="content">
-    <p style="color: white" id="login">Your Favroite Pins</p>
+    <p style="color: white" class="favPins">Your Favroite Pins</p>
     <div class="grid">
         <div class="grid-item">
             <!-- Button trigger modal -->
@@ -54,7 +54,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <input type="hidden" name="_csrf" value= <%=csrfToken %> />
+                <!--<input type="hidden" name="_csrf" value= />-->
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <button type="Submit" class="btn btn-primary">Add</button>
             </div>
@@ -76,7 +76,7 @@
                 <input type="hidden" name="pinId" id="pinId" value=""/>
             </div>
             <div class="modal-footer">
-                <input type="hidden" name="_csrf" value= <%=csrfToken %> />
+                <!--<input type="hidden" name="_csrf" value=  />-->
                 <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
                 <button type="Submit" class="btn btn-danger btn-sm">Delete</button>
             </div>
@@ -105,7 +105,7 @@
                 <input type="hidden" name="pinId" id="pinIdEdit" value=""/>
             </div>
             <div class="modal-footer">
-                <input type="hidden" name="_csrf" value= <%=csrfToken %> />
+                <!--<input type="hidden" name="_csrf" value=  />-->
                 <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
                 <button type="Submit" class="btn btn-danger btn-sm">Update</button>
             </div>
@@ -115,23 +115,6 @@
   </div>
 </div>
 
+<script type="text/javascript" src="../js/app.js"></script>
 
-<!--<script type="text/javascript"  src="https://code.jquery.com/jquery-3.2.1.min.js"></script>-->
-<!--<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>-->
-<script>
-    $(document).on("click", ".delete", function () {
-     var pinId = $(this).data('id');
-     $(".modal-body #pinId").val( pinId);
-   
-    });
-    $(document).on("click", ".edit", function() {
-        var pinId = $(this).data('id');
-        var pinImage = $(this).data('image');
-        var pinDesc = $(this).data('desc');
-        $(".modal-body #image").val( pinImage);
-        $(".modal-body #title").val( pinDesc);
-        $(".modal-body #pinIdEdit").val(pinId);
-        
-    });
-</script>
 <% include ../partials/footer %>

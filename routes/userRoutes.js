@@ -7,7 +7,8 @@ var express             = require('express'),
     
     
 router.get('/user/signup', function( req, res) {
-   res.render('./user/signup',{csrfToken: req.csrfToken()});
+   // res.render('./user/signup',{csrfToken: req.csrfToken()});
+   res.render('./user/signup');
 });
 router.post('/user/signup', function (req, res) {
    var username = new User({username: req.body.username});
@@ -25,7 +26,8 @@ router.post('/user/signup', function (req, res) {
  
 });
 router.get('/user/login', function( req, res) {
-   res.render('./user/login', {csrfToken: req.csrfToken()});
+   // res.render('./user/login', {csrfToken: req.csrfToken()});
+   res.render('./user/login');
 });
 router.post('/user/login',passport.authenticate('local', {
    successRedirect: '/user/profile',
@@ -40,7 +42,8 @@ router.get('/user/profile', isLoggedIn, function(req,res){
          res.render("user/profile",{csrfToken: req.csrfToken()} );
       } else {
 
-         res.render("user/profile", {pins: pin , csrfToken: req.csrfToken()});
+         // res.render("user/profile", {pins: pin , csrfToken: req.csrfToken()});
+         res.render('user/profile',{pins:pin});
       }
       
    });

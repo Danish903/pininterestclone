@@ -15,9 +15,9 @@ var express                   = require('express'),
     
     
 var app = express();
-var csrfProtection = csrf();
-//https://whispering-brook-21854.herokuapp.com/ 
-// mongoose.connect('mongodb://localhost/pins', {useMongoClient: true});
+// var csrfProtection = csrf();
+
+//mongoose.connect('mongodb://localhost/pins', {useMongoClient: true});
 mongoose.connect('mongodb://buster:buster@ds153113.mlab.com:53113/favbandpins', {useMongoClient: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine","ejs");
@@ -28,7 +28,7 @@ app.use(session({
    resave: false,
    saveUninitialized: false
 }));
-app.use(csrfProtection);
+// app.use(csrfProtection);
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -39,6 +39,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use(function(req, res, next) {
    res.locals.currentUser = req.user;
    res.locals.moment = moment;
+   // res.locals.csrfToke = req.csrfToken();
    next();
 });
 // ================
@@ -50,7 +51,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/pins', function (req, res) {
-   Pin.find({}).populate("like").exec( function(err, pins) {
+   Pin.find({}).sort({createdAt: -1}).populate("like").exec( function(err, pins) {
       if(err) {
          console.log('error in pin display');
       } else {
@@ -76,33 +77,31 @@ app.post('/user/profile', function (req, res) {
          res.redirect('/user/profile');
       }
       
-      
    });
 });
-app.get('/allpins',  function (req, res) {
+
+// app.get('/pins/:id', isLoggedIn, function (req, res) {
+//    Pin.findById(req.params.id, function(err, pin) {
+//       if(err) {
+//          console.log("error id");
+//        return  res.redirect('/pins');
+//       } else {
+//          var like = new Like({
+//             user: req.user._id,
+//             pin: pin._id,
+//             hasLike: true
+//          });
+//          pin.likeCount++;
+//          pin.like.push(like);
+//          like.save();
+//          pin.save();
+//          res.redirect('/pins');
+//       }
+//    });
    
-   Pin.find({}, function(err, pin) {
-      if(err) {
-         console.log("error id");
-       return  res.redirect('/pins');
-      } else {
-         // var like = new Like({
-         //    user: req.user._id,
-         //    pin: pin._id,
-         //    hasLike: true
-         // });
-         // pin.likeCount++;
-         // pin.like.push(like);
-         // like.save();
-         // pin.save();
-         console.log(pin);
-         res.json(pin);
-      }
-   });
    
-   
-});
-app.get('/pins/:id', isLoggedIn, function (req, res) {
+// });
+app.post('/pins/add/:id',  function (req, res) {
    Pin.findById(req.params.id, function(err, pin) {
       if(err) {
          console.log("error id");
@@ -117,7 +116,7 @@ app.get('/pins/:id', isLoggedIn, function (req, res) {
          pin.like.push(like);
          like.save();
          pin.save();
-         res.redirect('/pins');
+         res.json(pin);
       }
    });
    

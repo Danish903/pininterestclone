@@ -1,0 +1,103 @@
+body {
+    background: #333;
+}
+.navbar-default .navbar-brand{
+    color: white;
+}
+.navbar-default .navbar-brand:hover{
+    color: white;
+}
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+    color: white;
+    background-color: transparent;
+}
+label{
+    color: white;
+    
+}
+#login {
+  Color: white ;
+  margin: 30px 0;
+  font-weight: Bold;
+  font-size: 3em;
+  border-bottom: 1px solid white;
+  padding-bottom: 20px;
+ 
+}
+
+body { font-family: sans-serif}
+
+/* ---- grid ---- */
+.content {
+  max-width: 100%;
+  margin: 0 auto;
+  margin-left: 20px;
+  padding-left: 20px;
+}
+.grid {
+  background: #333;
+  max-width: 100%;
+}
+h1{
+  border-bottom: 1px solid #b2b2b2;
+  width: 20%;
+  padding-bottom: 20px;
+}
+
+/* clearfix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ---- grid-item ---- */
+
+.grid-item {
+  width: 200px;
+
+  float: left;
+  background: white;
+  /*//#dce0e8;*/
+  border: 2px solid #333;
+  border-color:#333;
+  border-radius: 10px;
+ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+.grid-item img {
+   position: relative;
+  /*object-fit: contain;*/
+  min-width: 128px;
+  max-width: 80%;
+  margin-left: 18px;
+  margin-top: 18px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  height: auto;
+}
+#addNew {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: 40px
+}
+.modal-body .form-group label {
+  color: black;
+}
+.pinsFont{
+  font-family: 'Sedgwick Ave Display', cursive;
+  font-size: 20px;
+}
+p {
+  font-family: 'Lobster Two', cursive;
+}
+
+a:hover{
+  cursor: pointer;
+}
+
+.favPins {
+   font-family: 'Lobster Two', cursive;
+  border-bottom: 1px solid white;
+  font-size: 30px;
+  width: 30%;
+}
