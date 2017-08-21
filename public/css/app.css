@@ -25,18 +25,18 @@ label{
  
 }
 
-body { font-family: sans-serif}
 
 /* ---- grid ---- */
 .content {
   max-width: 100%;
   margin: 0 auto;
   margin-left: 20px;
-  padding-left: 20px;
+  padding: 0 Auto;
 }
 .grid {
   background: #333;
   max-width: 100%;
+ 
 }
 h1{
   border-bottom: 1px solid #b2b2b2;
@@ -55,7 +55,7 @@ h1{
 
 .grid-item {
   width: 200px;
-
+ margin: 0 Auto;
   float: left;
   background: white;
   /*//#dce0e8;*/
