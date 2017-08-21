@@ -1,0 +1,22 @@
+<% include ../partials/header %>
+<link rel="stylesheet" type="text/css" href="../css/app.css">
+<div class="container" style="margin: 70px auto;width: 25%" >
+    <p   id="login">Login!</p>
+    <form action="/user/login" method="POST">
+        <div class="form-group">
+            <label for="username" style="color: white">Username</label>
+            <input type="text" id="username" name="username" placeholder="username" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="password" >Password</label>
+            <input type="password" id="password" name="password" placeholder="password" class="form-control">
+        </div>
+        <!--<input type="hidden" name="_csrf" value= />-->
+        <button class="btn btn-primary btn-block">Login</button>
+        <p id="login"></p>
+    </form>
+    <!--<a class="btn btn-primary btn-sm" href="#"><i class="fa fa-facebook" aria-hidden="true"></i> Connect with Facebook</a>-->
+    <a class="btn btn-info btn-block btn-sm" href="#"><i class="fa fa-twitter" aria-hidden="true"></i> Connect with Twitter</a>
+    
+</div>
+<% include ../partials/footer %>
