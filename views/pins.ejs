@@ -21,7 +21,7 @@
             <% }) %>
             <% if (!found)  { %>
               <p class="like" data-id="<%= pin._id %>" data-count=<%=pin.likeCount%> >
-                <a style="<i type="button" class="fa fa-thumbs-o-up fa-2x " aria-hidden="true"></i> </a>
+                <a href="/pins/<%=pin._id%>" style="<i type="button" class="fa fa-thumbs-o-up fa-2x " aria-hidden="true"></i> </a>
                 <span  style="pointer-events: none"class="disabled" id="countLike">&nbsp;<%=pin.likeCount %></span>
               </p>
             <% } else {%>

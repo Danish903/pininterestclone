@@ -45,7 +45,7 @@
           </li>
         <% } else { %>
           <li><a href="/user/profile"> Your Profile</a></li>
-          <li><a href="#"> Signed in as <%=currentUser.username %></a></li>
+          <li><a href="#"> Signed in as <%=currentUser.name %></a></li>
           <li><a href="/user/logout"> Logout</a></li>
         <% } %>
       
@@ -54,4 +54,17 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-
+<div class="container">
+  <!--<div class="container">-->
+  <% if(success && success.length > 0) { %>
+    <div class="alert alert-info ">
+      <%= success %> 
+    </div>
+  <% } %>  
+  <% if(error && error.length > 0) {%>
+    <div class="alert alert-danger">
+      <%= error %>
+    </div>
+  <% } %>
+  <!--</div>-->
+</div>

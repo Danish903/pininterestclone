@@ -9,7 +9,6 @@ var likeSchema = new mongoose.Schema({
    },      
    hasLike: {type: Boolean, default: false},
    pin:  {
-
          type: mongoose.Schema.Types.ObjectId,
          ref: "Pin"
    
