@@ -17,7 +17,7 @@ var express                   = require('express'),
 var app = express();
 // var csrfProtection = csrf();
 
-//mongoose.connect('mongodb://localhost/pins', {useMongoClient: true});
+// mongoose.connect('mongodb://localhost/pins', {useMongoClient: true});
 mongoose.connect('mongodb://buster:buster@ds153113.mlab.com:53113/favbandpins', {useMongoClient: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine","ejs");
@@ -107,6 +107,7 @@ app.post('/pins/add/:id',  function (req, res) {
          console.log("error id");
        return  res.redirect('/pins');
       } else {
+         console.log(req.user);
          var like = new Like({
             user: req.user._id,
             pin: pin._id,

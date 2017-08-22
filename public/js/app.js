@@ -10,7 +10,7 @@
 
 
 //AJAX Call on like
-$(document).on("click", ".like", function (e) {
+$(document).one("click", ".like", function (e) {
         if(e.target === this) return;
        var pinId = $(this).data('id');
        var likeCount = $(this).data('count')+1;
