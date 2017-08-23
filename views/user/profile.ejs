@@ -16,7 +16,8 @@
         </div>
         <% pins.forEach(function(pin){ %>
           <div class="grid-item">
-              <img src="<%= pin.image %>" />
+              
+              <img src="<%= pin.image %>" onError="this.onerror=null;this.src='http://www.siennachicago.com/Common/images/jquery/galleria/image-not-found.png';"/>
               <div  style=" width: 80%; margin: 30px auto">
                 <p class="text-center pinsFont"> <%= pin.description %></p>
                 <p class="pull-right"><i class="fa fa-heart " aria-hidden="true"></i> <span>&nbsp;<%=pin.likeCount %></span></p>
