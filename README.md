@@ -1,10 +1,13 @@
 # Pininterestclone
 
-This web app is part of the Back-End Development curriculum of FreeCodeCamp.org.
+This web app is part of the Back-End Development curriculum of <a href="https://www.freecodecamp.org/challenges/build-a-pinterest-clone" >FreeCodeCamp.org</a>.
+
 
 
 <p align="center"> 
+    
     <img src="https://camo.githubusercontent.com/4858b3f15cd57a67f37fb7bd409eb48240d44eb0/687474703a2f2f692e6d616b65616769662e636f6d2f6d656469612f382d32332d323031372f515f78544a752e676966" />
+
 </p>
 
 
