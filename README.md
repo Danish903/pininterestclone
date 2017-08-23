@@ -23,6 +23,8 @@ Here are the specific user storiesimplement for this project:
 - As an unauthenticated user, I can browse other users' walls of images.
 - As an authenticated user, if I upload an image that is broken, it will be replaced by a "not found" image.
 
+<hr>
+
 ### Built with Nodejs and Express.
 
 ## To run this project
