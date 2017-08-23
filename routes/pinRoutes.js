@@ -50,8 +50,9 @@ router.get('/pins/:id', isLoggedIn, function (req, res) {
          var like = new Like({
             user: req.user._id,
             pin: pin._id,
-            hasLike: true
+            
          });
+         pin.hasLike = true;
          pin.likeCount++;
          pin.like.push(like);
          like.save();
@@ -60,7 +61,26 @@ router.get('/pins/:id', isLoggedIn, function (req, res) {
       }
    });
 });
-   
+router.get('/pins/:id/dislike', isLoggedIn, function (req, res) {
+   Pin.findById(req.params.id, function(err, pin) {
+      if(err) {
+         console.log("error id");
+       return  res.redirect('/pins');
+      } else {
+         // var like = new Like({
+         //    user: req.user._id,
+         //    pin: pin._id,
+         //    hasLike: true
+         // });
+         pin.hasLike = false;
+         pin.likeCount--;
+         // pin.like.push(like);
+         // like.save();
+         pin.save();
+         res.redirect('/pins');
+      }
+   });
+});
 
 router.delete('/pins/delete', isLoggedIn, function(req, res) {
    

@@ -18,6 +18,7 @@ var pinSchema = new mongoose.Schema({
          ref: "Like"
       }
    ],
+    hasLike: {type: Boolean, default: false},
    createdAt: {type: Date, default: Date.now}
 
 });

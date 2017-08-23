@@ -6,7 +6,7 @@
   <div class="grid">
     <% pins.forEach(function(pin){ %>
         <div class="grid-item">
-        <img src="<%= pin.image %>" onError="this.onerror=null;this.src='http://www.siennachicago.com/Common/images/jquery/galleria/image-not-found.png';"/>
+        <img src="<%= pin.image %>" onError="this.onerror=null;this.src='https://res.cloudinary.com/hashnode/image/upload/w_400,h_400,c_thumb/v1469909601/gnudanmsiybs57dcpld4.jpg';"/>
         <div  style=" width: 80%; margin: 30px auto">
           <p class="text-center pinsFont"> <%= pin.description %></p>
           <p class="btn btn-sx btn-danger pull-right"><%=pin.user.username.substring(0,10) %> </p>
@@ -15,17 +15,21 @@
           <% } else if(currentUser && !pin.user.id.equals(currentUser._id)){ %>
           <% var found = false %>
             <% pin.like.forEach(function (like) {%>
-              <% if(like.user.equals(currentUser._id) && like.hasLike) { %>
+              <% if(like.user.equals(currentUser._id) && pin.hasLike) { %>
                 <%found = true%>
               <% } %>
             <% }) %>
             <% if (!found)  { %>
               <p class="like" data-id="<%= pin._id %>" data-count=<%=pin.likeCount%> >
-                <a href="/pins/<%=pin._id%>" style="<i type="button" class="fa fa-thumbs-o-up fa-2x " aria-hidden="true"></i> </a>
+                <a href="/pins/<%=pin._id%>" <i type="button" class="fa fa-thumbs-o-up fa-2x " aria-hidden="true"></i> </a>
                 <span  style="pointer-events: none"class="disabled" id="countLike">&nbsp;<%=pin.likeCount %></span>
               </p>
-            <% } else {%>
-               <p><i class="fa fa-thumbs-o-up fa-2x" aria-hidden="true"></i><span class="disabled"id="countLike">&nbsp;<%=pin.likeCount %></span></p>
+            <% } else { %>
+            
+               <p>
+                 <a href="/pins/<%=pin._id%>/dislike" <i type="button" class="fa fa-thumbs-o-down fa-2x " aria-hidden="true"></i> </a>
+                 <span class="disabled"id="countLike">&nbsp;<%=pin.likeCount %></span>
+              </p>
             <% } %>
           <% } else { %>
             <p><i class="fa fa-thumbs-o-up fa-2x" aria-hidden="true"></i><span class="disabled" id="countLike">&nbsp;<%=pin.likeCount %></span></p>
